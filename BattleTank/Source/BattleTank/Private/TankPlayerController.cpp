@@ -4,6 +4,7 @@
 #include "GameFramework/PlayerController.h"
 #include "Runtime/Core/Public/Math/Vector.h"
 #include "Runtime/Engine/Classes/Engine/World.h"
+#include "Tank.h"
 
 
 //Begin PLay
@@ -20,8 +21,6 @@ void ATankPlayerController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Player Controller possesing %s"), *(ControlledTank->GetName()));
 	}
-
-	UE_LOG(LogTemp, Warning, TEXT("Player Controller BeginPlay"));
 }
 
 //Tick
