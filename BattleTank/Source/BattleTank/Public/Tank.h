@@ -39,16 +39,20 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY(EditAnywhere, Category = Firing)
+	UPROPERTY(EditAnywhere, Category = Setup) 
+	TSubclassOf<AProjectile> ProjectileBlueprint;
+	
+	UPROPERTY(EditAnywhere, Category = Firing) //allows change on all instances of tanks
 	float LaunchSpeed = 4000;
 
-	UPROPERTY(EditAnywhere, Category = Setup)
-	TSubclassOf<AProjectile> ProjectileBlueprint; 
+	UPROPERTY(EditDefaultsOnly, Category = Firing) //allows change only on Tank Blueprint for ALL Tanks
+	float ReloadTimeInSeconds = 3;
 
+	
 	//local barrel refernce for spawning projectiles
 	UTankBarrel* Barrel = nullptr;
 
-	float ReloadTimeInSeconds = 3;
+	
 
 	double LastFireTime = 0;
 
