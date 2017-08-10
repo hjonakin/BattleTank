@@ -3,6 +3,8 @@
 #include "Tank.h"
 #include "Projectile.h"
 #include "TankBarrel.h"
+#include "TankAimingComponent.h"
+#include "TankMovementComponent.h"
 #include "Runtime/Engine/Classes/GameFramework/Actor.h"
 
 
