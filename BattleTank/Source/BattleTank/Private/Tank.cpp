@@ -3,8 +3,6 @@
 #include "Tank.h"
 #include "Projectile.h"
 #include "TankBarrel.h"
-#include "TankAimingComponent.h"
-#include "TankMovementComponent.h"
 #include "Runtime/Engine/Classes/GameFramework/Actor.h"
 
 
@@ -20,17 +18,12 @@ void ATank::BeginPlay()
 	Super::BeginPlay(); //needed for BP begin play to run
 }
 
-void ATank::AimAt(FVector HitLocation)
-{
-	if (!TankAimingComponent) { return; }
-	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
-}
-
 void ATank::Fire()
 {
+	if (!ensure(Barrel)) { return; }
 	bool IsReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
 
-		if (Barrel && IsReloaded)
+		if (IsReloaded)
 		{
 
 			//spawn a projectile at the socket loaction
